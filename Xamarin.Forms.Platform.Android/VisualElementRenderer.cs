@@ -8,6 +8,7 @@ using Android.Views;
 using Xamarin.Forms.Internals;
 using AView = Android.Views.View;
 using Xamarin.Forms.Platform.Android.FastRenderers;
+using Android.Runtime;
 
 namespace Xamarin.Forms.Platform.Android
 {
@@ -27,6 +28,10 @@ namespace Xamarin.Forms.Platform.Android
 		PropertyChangedEventHandler _propertyChangeHandler;
 
 		readonly GestureManager _gestureManager;
+
+		internal VisualElementRenderer(IntPtr handle, JniHandleOwnership ownership) : base(handle, ownership)
+		{
+		}
 
 		protected VisualElementRenderer(Context context) : base(context)
 		{
